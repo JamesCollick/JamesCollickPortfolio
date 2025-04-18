@@ -31,7 +31,7 @@ const About = () => {
                   data-aos-duration="1200"
                 >
                   <span>About Me</span>
-                  <h3>Creative Independent Designer based in Detroit, Michigan</h3>
+                  <h3>Creative UI/UX Designer based in Detroit, Michigan</h3>
                 </div>
                 <div
                   className="text"
@@ -39,7 +39,13 @@ const About = () => {
                   data-aos-duration="1200"
                 >
                   <p>
-                  I'm a passionate graduate of Information Technology with an unstoppable drive to excel in the world of technology. Armed with my associate degree and currently halfway through my bachelor's degree, I have consistently maintained an impressive GPA of 3.67, a testament to my dedication and thirst for knowledge. As I embark on my professional journey, my eyes are firmly set on the role of a front-end developer. With boundless excitement and unwavering motivation, I am ready to harness my skills, creativity, and attention to detail to craft captivating and user-friendly web experiences. Together, we can build a beautiful vibrant future!
+                  I'm a proud graduate of Herzing University, having earned my Bachelor of Science degree, magna cum laude, with a 3.8 GPA. For the past four years, I've worked as a freelance UI/UX designer, blending aesthetics with usability to create meaningful digital experiences.
+
+My journey into interface design and development began in the early days of MySpace, where I first discovered the thrill of customizing layouts, editing code, and exploring the power of digital self-expression. That formative experience sparked a lifelong fascination with user interfaces and marked the moment I became a student of the digital art world.
+
+Today, I bring that same curiosity, creativity, and precision to every project I take on. Whether I'm wireframing a new app, designing a seamless user flow, or coding responsive interfaces, I'm driven by the idea that great design isn't just about how something looks — it's about how it feels to use.
+
+With an eye toward innovation and a deep respect for intuitive design, I'm eager to contribute to forward-thinking teams and help shape technology that's as beautiful as it is functional.
                   </p>
                 </div>
                 <div

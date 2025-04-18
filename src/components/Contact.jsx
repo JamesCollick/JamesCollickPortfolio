@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const {
@@ -10,23 +10,33 @@ const Contact = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    e.target.reset();
+    e.preventDefault();
 
-    axios
-  .post(
-    'http://localhost:3001/api/subscribe', // URL
-    {
-      email: data.email,
+    const templateParams = {
       name: data.name,
-      subject: data.subject,
-    } // Data to send in request body
-  )
-  .then((response) => {
-    console.log('Data sent to server', response);
-  })
-  .catch((error) => {
-    console.log('Error sending data to server', error);
-  });
+      email: data.email,
+      message: data.subject,
+      title: "Website Contact Submission", // You can customize this
+    };
+
+    emailjs
+      .send(
+        "service_2ltuey3",      // Replace this
+        "template_80k50wp",     // Replace this
+        templateParams,
+        "Y8cU0kzbOlXOBaYCA"       // Replace this
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          e.target.reset();
+          alert("Message sent successfully!");
+        },
+        (err) => {
+          console.error("FAILED...", err);
+          alert("Something went wrong. Please try again later.");
+        }
+      );
   };
 
   return (
@@ -44,7 +54,6 @@ const Contact = () => {
                 <span>Name is required</span>
               )}
             </li>
-            {/* End first name field */}
 
             <li>
               <input
@@ -52,7 +61,7 @@ const Contact = () => {
                   required: "Email is Required",
                   pattern: {
                     value: /\S+@\S+\.\S+/,
-                    message: "Entered value does not match email format",
+                    message: "Invalid email format",
                   },
                 })}
                 type="email"
@@ -60,16 +69,14 @@ const Contact = () => {
               />
               {errors.email && <span role="alert">{errors.email.message}</span>}
             </li>
-            {/* End email name field */}
 
             <li>
               <textarea
                 {...register("subject", { required: true })}
                 placeholder="Message"
               ></textarea>
-              {errors.subject && <span>Subject is required.</span>}
+              {errors.subject && <span>Message is required.</span>}
             </li>
-            {/* End subject  field */}
           </ul>
         </div>
 
@@ -78,9 +85,7 @@ const Contact = () => {
             Send Message
           </button>
         </div>
-        {/* End tokyo_tm_button */}
       </form>
-      {/* End contact */}
     </>
   );
 };
